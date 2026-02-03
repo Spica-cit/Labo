@@ -1,0 +1,84 @@
+\documentclass[a4paper,12pt]{ltjsarticle}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{luatexja-fontspec}
+\usepackage{color}
+\usepackage{hyperref}
+\setlist[itemize]{label=-}
+\setmainjfont{IPAexMincho}
+\setmainfont{Times New Roman}
+\setsansjfont{IPAexMincho}
+\setsansfont{Times New Roman}
+\geometry{margin=15mm}
+\renewcommand{\baselinestretch}{1.2}
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{1em}
+
+\begin{document}
+\centerline{\Large 古池先生mtg資料}
+\rightline{\mid \today}
+\rightline{\mid 千葉工業大学大学院}
+\rightline{\mid 学習工学研究室}
+\rightline{\mid 内山裕太}
+
+\section*{今回の報告内容}
+\begin{itemize}
+    \item 今行っていること
+\end{itemize}
+
+\section*{今行っていること}
+数学の研究が思うように進まず，他の分野に対して何か支援できそうなことがないかを考えてみました．
+
+近年，小論文などを用いた推薦入試を利用する学生が増加しています．ただ，生成AI等を用いる機会が増えたこともあり，学生自身の主張に対する根拠が非常に弱く出てしまうことが多いです．例えば，小論文の課題などでは非常に面白い視点での返答ができているのにも関わらず，その内容を後押しする理由や根拠が薄いことで「結局何が言いたいんだろう」という疑問を抱かせてしまうことが多いです．また，高校などの授業では小論文自体を題材としたものが少なく，十分に支援される環境が整っていないことが事実です．
+
+予備校や塾に通うことで小論文の対策や総合型入試の対策を取ることは可能になってきました．しかし，経済的に通うことが困難な上，学校でも十分な指導を行ってもらえないような場合があると考えています．そこで，小論文対策の前に以下のようなテーマ案で少し考えてみました．
+
+\clearpage
+\subsection*{研究テーマ案}
+「国語の読解問題における根拠同定を支援する学習支援システムの開発」
+
+\subsection*{目的}
+\begin{itemize}
+    \item 読解問題において，選択肢を選ぶ際の根拠や記述内容を見つけるための力を養うことは非常に重要
+    \item 学習者の考えている内容を可視化することで，自身の考えを客観的，批判的な視点で見ることで理解を深める
+    \item システムからのFBを通じて，正しい考え方についての理解を定着させる
+\end{itemize}
+
+\subsection*{システムに求める理想機能}
+\begin{itemize}
+    \item 学習者の誤りに応じて，正しい解答に必要な部分をハイライト（段階的に見せたい）
+    \item 選択肢の問題などでは，選択肢を本文の該当箇所に紐づける（ドラッグ＆ドロップ？）
+    \begin{itemize}
+        \item もし間違った選択肢の場合，紐づけできない部分があり誤りに気付ける
+    \end{itemize}
+    \item FBの表示（正解，部分正解，誤り箇所，状況に応じたヒント）
+    \item 結果画面にて正誤比較したものを表示
+    \item 学習ログの保存（分析用）
+\end{itemize}
+
+\subsubsection*{メモ}
+\begin{itemize}
+    \item 学習者が本文と選択肢の対応を意識する
+    \item 紐づけの正誤判定を視覚的にわかりやすくした方がよさそう
+    \item 部分正解の定義や，ヒントの粒度設計は大変そう
+\end{itemize}
+
+\subsection*{技術}
+フロントエンド
+
+HTML/CSS/JavaScript(React.js/D3.js とか？)
+
+問題データはJSONファイルで管理
+
+ChatGPTに相談したら「形態素解析（MeCab）を使うので理解するように」と言われたので勉強します
+
+\section*{余談}
+自分で「あったらいいなぁ」と思うシステムを作ってみました
+
+\color{blue} 模試の結果と志望校情報から復習単元を予測するサイト
+
+\href{https://spica-cit.github.io/Results_analysis/}{https://spica-cit.github.io/Results\_analysis/}
+
+\end{document}

@@ -1,0 +1,271 @@
+\documentclass[a4paper,12pt]{ltjsarticle}
+
+% パッケージ
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{luatexja-fontspec}
+
+% フォント設定
+\setmainjfont{IPAexMincho}
+\setmainfont{Times New Roman}
+\setsansjfont{IPAexMincho}
+\setsansfont{Times New Roman}
+
+% レイアウト
+\geometry{margin=25mm}
+\setlist[itemize]{label=--, leftmargin=2em}
+\setlist[enumerate]{leftmargin=2em}
+
+%====================
+% 強調用コマンド
+%====================
+\newcommand{\important}[1]{\textcolor{blue}{\textbf{#1}}}
+
+\begin{document}
+
+%====================
+% タイトルブロック
+%====================
+\begin{center}
+  {\huge 進捗報告（ver.35）}\\[1em]
+  {\large \today}\\
+  {\large 千葉工業大学大学院 学習工学研究室}\\
+  {\large 内山 裕太}
+\end{center}
+
+\vspace{2em}
+
+%====================
+\section{進捗概要}
+研究タイトル？\\
+「定式化構造を部品として捉えた方程式文章題の問題解決過程支援」\\
+
+部品の構成は？\\
+\begin{itemize}
+  \item 数量役割
+  \begin{itemize}
+    \item 初期量：$A$
+    \item 変化量：$B$
+    \item 最終量：$x$\\
+  \end{itemize}
+  \item 関係
+  \begin{itemize}
+    \item $x=A+B$\\
+  \end{itemize}
+\end{itemize}
+
+上記のような定式化構造を「部品」として扱う？
+\clearpage
+
+$問題例①$\\
+「太郎はりんごを3個持っている．花子から2個もらった場合，太郎はりんごを何個持っているか？」\\
+
+\begin{itemize}
+  \item 表層要素
+  \begin{itemize}
+    \item 太郎
+    \item 花子
+    \item りんご
+    \item 3個
+    \item 2個\\
+  \end{itemize}
+  \item 数量関係
+  \begin{itemize}
+    \item 初期量：$3個$
+    \item 変化量：$+2個$
+    \item 最終量：$?$\\
+  \end{itemize}
+  \item 定式化構造
+  \begin{itemize}
+    \item $?=3+2$\\
+  \end{itemize}
+\end{itemize}
+\clearpage
+
+$問題例②$\\
+「A君は500円持っている．お小遣いとして300円もらった．A君の所持金はいくらになったか？」\\
+
+\begin{itemize}
+  \item 表層要素
+  \begin{itemize}
+    \item A君
+    \item 500円
+    \item 300円
+    \item お小遣い\\
+  \end{itemize}
+  \item 数量関係
+  \begin{itemize}
+    \item 初期量：$500円$
+    \item 変化量：$+300円$
+    \item 最終量：$?$\\
+  \end{itemize}
+  \item 定式化構造
+  \begin{itemize}
+    \item $?=500+300$\\
+  \end{itemize}
+\end{itemize}
+\clearpage
+
+$問題例③$\\
+「家から駅までの道のりは800mである．出発してから300m歩いた地点での残りは何mか？」\\
+
+\begin{itemize}
+  \item 表層要素
+  \begin{itemize}
+    \item 家
+    \item 駅
+    \item 800m
+    \item 300m\\
+  \end{itemize}
+  \item 数量関係
+  \begin{itemize}
+    \item 初期量：$300m$
+    \item 変化量：$?$
+    \item 最終量：$800m$\\
+  \end{itemize}
+  \item 定式化構造
+  \begin{itemize}
+    \item $300+?=800$\\
+  \end{itemize}
+\end{itemize}
+
+\important{変数の位置が異なる（移項とかがあるけど，文脈として考えた場合？）}
+\clearpage
+全部同じ問題として扱ってよいのでは？（加法だし）\\
+
+\important{自分の研究としてはよくない\\}
+
+\begin{itemize}
+  \item 問題①，②
+  \begin{itemize}
+    \item $?=α+β$\\
+  \end{itemize}
+  \item 問題③
+  \begin{itemize}
+    \item $α+?=β$\\
+  \end{itemize}
+\end{itemize}
+
+\important{式変形したら同じだが，定式化構造としては別物なのでは？\\}
+
+重要な点\\
+\begin{itemize}
+  \item 「式が同じ」として片づけることもできる
+  \item 数量役割と関係の配置が同じ
+  \begin{itemize}
+    \item \important{定式化した構造が類似している（問題として似ている）\\}
+  \end{itemize}
+\end{itemize}
+
+学習者自身は何を根拠に「同じ」を判断する？\\
+
+教師「これは前と同じタイプの問題だよ！」\\
+学習者「なるほど（わかった気になっている）」\\
+
+but...\\
+
+\begin{itemize}
+  \item どこが異なるのか？
+  \item どこが同じなのか？\\
+\end{itemize}
+
+上記が明示されないと，わからないのでは？
+
+\clearpage
+どんなシステムが必要なのだろう？（わかってない）\\
+
+必要そうな機能
+\begin{itemize}
+  \item 表層構造の違いを示す
+  \begin{itemize}
+    \item 問題文だけだと全く別の問題に見える
+    \item 「解けるのか」ではなく，「構造的な違い」を比較する必要あり\\
+  \end{itemize}
+  \item 数量役割を明示的に操作
+  \begin{itemize}
+    \item 各数値に対して役割を割り当てる（初期量，変化量など）\\
+  \end{itemize}
+  \item 定式化構造を「部品」として可視化する
+  \begin{itemize}
+    \item 定式化構造自体に名前などを付け，「前にやったことあるかも...」から再利用を促したい（できるのか？）\\
+  \end{itemize}
+  \item 判定（正解かどうかではなく，理由の重視）
+  \begin{itemize}
+    \item 部品を選んだ理由は？
+    \item 対応している要素は？\\
+  \end{itemize}
+\end{itemize}
+\clearpage
+
+%====================
+% \section{前回からの進捗}
+% \begin{enumerate}
+%   \item 
+% \end{enumerate}
+
+%====================
+\section{得られた結果・考察}
+\begin{itemize}
+  \item 部品の抽象化手法において重要な内容
+  \begin{itemize}
+    \item 表層構造が異なると全く別の問題に見えることがある
+    \item 定式化構造が類似するなら理解できるのでは？
+  \end{itemize}
+\end{itemize}
+
+%====================
+\section{問題点・課題}
+\begin{itemize}
+  \item 具体的なシステム構成が見えていない
+  \begin{itemize}
+    \item 一旦，学習のフローを考える必要がある
+    \item 立式の過程でどのような計画立てで行なっているのか分析（この辺研究している資料とかありそう？）
+  \end{itemize}
+\end{itemize}
+
+%====================
+\section{今後の予定}
+\begin{enumerate}
+  \item 具体的なシステム案の作成
+  \item システムの機能要件の検討
+\end{enumerate}
+\clearpage
+
+%====================
+\section*{雑談}
+\begin{itemize}
+  \item 朝起きれるが，気分的な問題で目覚めが悪い（悪い夢を見ることが多め）\\
+  \item ストレスを感じている自覚はないが，体はピークなのか？わからない
+  \begin{itemize}
+    \item 研究はモチベが上がっている
+    \item 私生活も嫌なことはない\\\\
+    となると，職場環境？あまり意識してないが，体力的に悲鳴？他の人に比べてがんばれている自覚はあまりないが...\\
+  \end{itemize}
+  \item 1月末に卒塾する生徒（1年半担当）から手紙をもらった（泣きましたが，内容が可愛かった）\\
+  \item 自分は何を楽しみに生きているのか（ゲーム最近やってないし）
+\end{itemize}
+
+%====================
+\section*{備考・メモ}
+\begin{itemize}
+  \item 2/17（火）＿研修？いないかもしれない（遅れてこれる可能性（微））
+  \item 3/3（火）＿合格祝賀会（受験生の合否後にパーティー）\\
+  \item to 前田先輩\\
+  統計サイトの修正まだしてません（一応）\\
+\end{itemize}
+
+今後の研究メモ
+\begin{itemize}
+  \item MIPSをもう一度読んでみる
+  \item 補助問題の定式化との関係性は？（いらないと思う）
+  \item 全国数学教育学会（良さそう）
+  \item 院ゼミのスレッド読め\\
+  \item 数学の研究（証明問題の部品化（システム作っちゃえ）
+  \item メンタリング活動の研究（文献調べろ）
+\end{itemize}
+
+\end{document}

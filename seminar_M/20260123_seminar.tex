@@ -1,0 +1,154 @@
+\documentclass[a4paper,12pt]{ltjsarticle}
+
+% パッケージ
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{luatexja-fontspec}
+
+% フォント設定
+\setmainjfont{IPAexMincho}
+\setmainfont{Times New Roman}
+\setsansjfont{IPAexMincho}
+\setsansfont{Times New Roman}
+
+% レイアウト
+\geometry{margin=25mm}
+\setlist[itemize]{label=--, leftmargin=2em}
+\setlist[enumerate]{leftmargin=2em}
+
+%====================
+% 強調用コマンド
+%====================
+\newcommand{\important}[1]{\textcolor{blue}{\textbf{#1}}}
+
+\begin{document}
+
+%====================
+% タイトルブロック
+%====================
+\begin{center}
+  {\huge 進捗報告（ver.34）}\\[1em]
+  {\large \today}\\
+  {\large 千葉工業大学大学院 学習工学研究室}\\
+  {\large 内山 裕太}
+\end{center}
+
+\vspace{2em}
+
+%====================
+% \section{研究概要}
+% \begin{itemize}
+%   \item 
+% \end{itemize}
+
+%====================
+\section{前回からの進捗}
+\begin{enumerate}
+  \item 補助問題の定式化拝読（全部は理解できていない）
+  \item 進捗報告の書式変更
+  \item パソコン内のデータ整理
+  \begin{itemize}
+    \item 卒論審査会，修論審査会のために動画データの整理（NASにアップ済）
+    \item 自分の研究に重要そうな文献の整理
+  \end{itemize}
+\end{enumerate}
+\clearpage
+
+%====================
+\section{得られた結果・考察}
+\begin{itemize}
+  \item 補助問題の定式化における問題解決過程
+  \begin{enumerate}
+    \item 問題文
+    \item （表層構造生成過程）
+    \item 表層構造
+    \item （定式化過程）
+    \item 定式化構造\\
+    \important{ここで解法構造と制約構造が関わってくる（解法構造においては，数量の関係が重要になる）}
+    \item 目標構造\\
+  \end{enumerate}
+  
+  \item それぞれについて\\
+  \important{ChatGPTが色々教えてくれたけど信用はしてないです}\\
+  「太郎はりんごを3個持っている．花子から2個もらったら，太郎はりんごを何個持っているか」を例とする\\
+  \begin{itemize}
+    \item 表層構造（問題を整理したもの）
+    \begin{itemize}
+      \item 主体：太郎
+      \item 対象：りんご
+      \item 初期状態（$known?$）：3個持っている
+      \item 変化：花子から2個もらう
+      \item 結果（$answer?$）：最終的な個数
+    \end{itemize}
+    表層構造生成過程では，問題文を整理することが目的．解法を導出する過程で何を使うのか．何が起きたのか．最終的に何を求めるのかを整理する段階．\\
+    \important{学習者がこれを把握して問題解くの重要だけど，意外にできてない？（ぱっと見で解けないと思っている学習者とかはここが原因）\\}
+    \clearpage
+
+    \item 定式化構造（表層構造を抽象化する）
+    \begin{itemize}
+      \item 変数\\
+      $x$：太郎の最終的なりんごの個数
+      \item 関係\\
+      初期値：3個\\
+      増加量：+2個
+      \item 定式化例\[x=初期値+増加量\]
+    \end{itemize}
+    定式化過程では，表層構造で理解した問題を「計算可能な状態」へ移行させる．$もらう=加算$などのように変化．不要な表現は除外して，必要な要素のみ残す形．
+    \important{定式化されたものが類似しているかどうかが重要そう？抽象的に考えて同じような問題だよねって判断できるのはここが重要になるかも\\}
+
+    \item 目標構造（これはなんだ？）
+    \begin{itemize}
+      \item 「何を求めたらゴールなのか」を明示する\\
+      $目標：変数xの値を求める$
+      \item 表現\\
+      現在のりんごの個数を算出せよ\\
+    \end{itemize}
+
+    \item 解法構造と制約構造はパス
+  \end{itemize}
+\end{itemize}
+
+%====================
+\section{問題点・課題}
+\begin{itemize}
+  \item 表層構造と定式化構造についての理解を深めたいが，この辺について関係してくる文献は知っていますか？\\
+  \important{自分のやりたかった抽象化の考え方は，表層構造と定式化構造にかかわってくると思っているから\\}
+  \item 別件なんですが，学会原稿のフィードバックってどうすればうまくできるのでしょうか...？
+  以前，前田先輩からアドバイスをもらいましたが，今回のようなスケジュールの場合はどうやってもD提出でのクオリティが下がる結果になる気がしていて，それは良くないことだから内山が頑張る必要があるって考えになります．ただ，それって本質的な解決になっていると思えないです．先ほど前田先輩に相談しましたが，結局は内山がやり切れてれば相談しなくてよかったはずだと思います．
+\end{itemize}
+
+%====================
+\section{今後の予定}
+\begin{enumerate}
+  \item 表層構造と定式化構造の理解を支援できるような枠組みを考える\\
+  \item システムを作るとしたらどのようになるかを考える（白髭先輩のシステム設計を見た方が良いかも）\\
+  \important{白髭先輩の修論完成したら見たい\\}
+  \item 八木君のコメントを見てやることを考える（ありがとう）
+\end{enumerate}
+
+%====================
+\section*{雑談}
+\begin{itemize}
+  \item 最近，統計検定がよくわからなくなってしまったので，調べたり生成AIの力を借りたりしながら作ってみました\\
+  \url{https://spica-cit.github.io/Examination-explanation/}\\
+  \item Texの数式の書き方でわかりやすかった\\
+  \url{https://guides.lib.kyushu-u.ac.jp/LaTeX-LectureNote/equations}\\
+  \item 最近，眠りが浅い気がする（生活スケジュールほぼ変えてないのに，日中眠いことが多い）\\
+  \item ここ2週間くらいで嫌な夢をよく見た\\
+  \item 研究のモチベは上昇気味（朝の目覚めがよくない）
+\end{itemize}
+
+%====================
+\section*{備考・メモ}
+\begin{itemize}
+  \item 八木君のコメントが神だった\\
+  \important{差と共通点の理解は重要だと思う（俺は共通点を共通点として理解できてる？）\\}
+  \item 公式を覚えるって感覚？\\
+  \important{あらゆる考え方を公式的に理解できるかの問題}
+\end{itemize}
+
+\end{document}

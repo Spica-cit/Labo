@@ -1,0 +1,100 @@
+\documentclass[a4paper,12pt]{ltjsarticle}
+
+% --------------------
+% 必須最低限
+% --------------------
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{luatexja-fontspec}
+\usepackage{hyperref}
+
+% --------------------
+% レイアウト（書き足しやすさ重視）
+% --------------------
+\geometry{
+  top=22mm,
+  bottom=22mm,
+  left=20mm,
+  right=20mm
+}
+
+\renewcommand{\baselinestretch}{1.3}
+\setlength{\parskip}{0.7em}
+\setlength{\parindent}{0pt} % ノート感を出すため字下げなし
+
+% --------------------
+% フォント（無難・疲れにくい）
+% --------------------
+\setmainjfont{IPAexMincho}
+\setmainfont{Times New Roman}
+
+% --------------------
+% 箇条書き（軽量）
+% --------------------
+\setlist[itemize]{
+  label=--,
+  leftmargin=1.5em,
+  itemsep=0.2em
+}
+
+% --------------------
+% メモ用コマンド
+% --------------------
+\newcommand{\memo}[1]{%
+  \par\noindent
+  {\color{gray}\small [#1]}
+}
+
+\newcommand{\todo}[1]{%
+  \par\noindent
+  {\color{blue}\bfseries TODO: #1}
+}
+
+% --------------------
+% 見出しを弱くする
+% --------------------
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\bfseries}
+  {}
+  {0pt}
+  {}
+\titlespacing*{\section}{0pt}{1.5ex}{0.8ex}
+
+% --------------------
+% ハイパーリンク（控えめ）
+% --------------------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue
+}
+
+\begin{document}
+
+\section{2026-01-20}
+
+$f(x)$ の性質について考える．
+
+\memo{定義はまだ曖昧．直感だけ先に書く}
+
+\begin{itemize}
+  \item 単調増加っぽい
+  \item 凸性がありそう
+\end{itemize}
+
+\[
+f(x) = x^2 + \varepsilon
+\]
+
+\memo{この辺，あとで厳密化する}
+
+\todo{反例を探す}
+
+\section{別のアイデア}
+
+前節とは関係ないが思いついたことを書く．
+
+\end{document}
